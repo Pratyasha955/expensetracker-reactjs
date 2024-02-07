@@ -1,0 +1,46 @@
+/* signup.css */
+
+.Signup-container {
+    width: 350px; /* Increased container width */
+    margin: 50px auto;
+    padding: 30px; /* Increased padding for better spacing */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .Signup-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Signup-container label {
+    margin-bottom: 5px;
+    text-align: left; /* Align labels to the left */
+  }
+  
+  .Signup-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .Signup-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .Signup-container button:hover {
+    background-color: #0056b3;
+  }
+  
