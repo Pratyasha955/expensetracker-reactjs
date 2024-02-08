@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import './signup.css';
 
 const Signup = () => {
@@ -78,8 +79,11 @@ const handleSubmit=async (e)=>{
                 <button type="submit">Signup</button>
             </form>
             {error && <p className="error-message">{error}</p>} 
+            <p className="Login-Message">
+                Already have an account? <Link to="/">Login</Link>
+            </p>
         </div>
     );
 }
 
-export default Signup;
+export default Signup; 

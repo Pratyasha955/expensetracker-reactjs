@@ -1,0 +1,59 @@
+
+
+.login-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin-bottom: 8px;
+    margin-right: 400px;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.error-message {
+    color: #ff0000;
+    margin-top: 10px;
+    background-color: #ffecec;
+    padding: 10px;
+    border: 1px solid #ffb3b3;
+    border-radius: 5px;
+}
+.Signup-Message{
+    color: #0077ff;
+    margin-top: 10px;
+    background-color: #ecffff;
+    padding: 10px;
+    border: 1px solid #64d1e4;
+    border-radius: 5px;
+  }
