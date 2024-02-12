@@ -1,17 +1,23 @@
 .header {
     background-color: #333;
     color: #fff;
-    padding: 10px 23px;
+    padding: 20px 23px;
+    position: fixed;
+    width: 100%; /* Ensure the header spans the entire width */
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000; /* Ensure the header stays above other elements */
 }
 
 .heading {
     margin: 0;
     font-size: 24px;
 }
-
+.navbar{
+    margin-right: 80px;
+}
 .nav-list {
     list-style-type: none;
     margin: 0;
@@ -20,6 +26,11 @@
 
 .nav-item {
     display: inline-block;
+    margin-right: 40px; /* Add margin to all nav items */
+}
+
+.nav-item:last-child {
+    margin-right: 0; /* Remove margin from the last nav item */
 }
 
 .logout-button {
@@ -33,8 +44,4 @@
 
 .logout-button:hover {
     background-color: #c82333;
-}
-
-.nav-item:not(:last-child) {
-    margin-right: 10px;
 }

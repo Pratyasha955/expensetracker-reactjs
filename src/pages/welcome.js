@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../Store/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Expense from '../Layout/Expense';
 import './welcome.css';
 
 const Home = () => {
@@ -42,19 +43,22 @@ const Home = () => {
   }, [token, navigate]);
 
   return (
-    <div className="container">
-      <div className="left-content">
-        <h2>Welcome To ExpenceTracker</h2>
+    <div>
+      <div className="container">
+        <div className="left-content">
+          <h2>Welcome To ExpenceTracker</h2>
+        </div>
+        <div className="right-content">
+          {profileComplete ? (
+            <p>
+              Your profile is complete. <Link to="/complete-profile">View Profile</Link>
+            </p>
+          ) : (
+            <p>Your profile is incomplete.<Link to="/complete-profile">Complete it now</Link></p>
+          )}
+        </div>
       </div>
-      <div className="right-content">
-        {profileComplete ? (
-          <p>
-            Your profile is complete. <Link to="/complete-profile">View Profile</Link>
-          </p>
-        ) : (
-          <p>Your profile is incomplete.<Link to="/complete-profile">Complete it now</Link></p>
-        )}
-      </div>
+      <Expense/>
     </div>
   );
 };
