@@ -8,11 +8,13 @@ import Header from './Layout/Header';
 import Home from './pages/welcome';
 import ProfileForm from './pages/ProfileForm';
 import ForgotPassword from './Auth/forgot';
+import { ExpenseProvider } from './Store/ExpenseContext';
 
 function App() {
   return (
     <Router>
       <AuthProvider>
+        <ExpenseProvider>
         <Header />
         <Routes>
           <Route path='/' element={<Login />} />
@@ -21,6 +23,7 @@ function App() {
           <Route path='/Welcome' element={<Home />} />
           <Route path='/complete-profile' element={<ProfileForm />} />
         </Routes>
+        </ExpenseProvider>
       </AuthProvider>
     </Router>
 

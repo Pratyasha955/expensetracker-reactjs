@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import ExpenseList from './ExpenseList';
 import './Expense.css';
-
+import { useExpense } from '../Store/ExpenseContext';
 const Expense = () => {
+    const { expenses, addExpense  } = useExpense();
     const [amount, setAmount] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [expenses, setExpenses] = useState([]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const newExpense = { amount, description, category };
-        setExpenses([...expenses, newExpense]);
-        // Clear the form after submission
-        setAmount('');
-        setDescription('');
-        setCategory('');
+    const handleSubmit = (e) => {
+        e.preventDefault();
+            const newExpense = {
+                amount,
+                description,
+                category
+            };
+            addExpense(newExpense);
+            setAmount('');
+            setDescription('');
+            setCategory('');
     };
 
     const handleAmountChange = (event) => {
