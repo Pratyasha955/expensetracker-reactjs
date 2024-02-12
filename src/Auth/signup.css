@@ -1,61 +1,71 @@
-/* signup.css */
-
 .Signup-container {
-    width: 350px; /* Increased container width */
-    margin: 50px auto;
-    padding: 30px; /* Increased padding for better spacing */
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .Signup-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .Signup-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .Signup-container label {
-    margin-bottom: 5px;
-    text-align: left; /* Align labels to the left */
-  }
-  
-  .Signup-container input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .Signup-container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .Signup-container button:hover {
-    background-color: #0056b3;
-  }
-  .error-message {
-    color: #ff0000;
-    margin-top: 10px;
-    background-color: #ffecec;
-    padding: 10px;
-    border: 1px solid #ffb3b3;
-    border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-  .Login-Message{
-    color: #0077ff;
-    margin-top: 10px;
-    background-color: #ecffff;
-    padding: 10px;
-    border: 1px solid #64d1e4;
-    border-radius: 5px;
-  }
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Signup-container label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.Signup-container input {
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 10px;
+  background-color: #ffecec;
+  padding: 10px;
+  border: 1px solid #ffb3b3;
+  border-radius: 5px;
+}
+
+.Login-Message {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.Login-Message a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.Login-Message a:hover {
+  text-decoration: underline;
+}

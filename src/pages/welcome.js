@@ -42,18 +42,19 @@ const Home = () => {
   }, [token, navigate]);
 
   return (
-    <div className="container-profile">
-      <h2>Welcome To ExpenceTracker</h2>
-      {profileComplete ? (
-        <p>
-          Your profile is complete. <Link to="/complete-profile">View Profile</Link>
-        </p>
-      ) : (
-        <p>Your profile is incomplete.</p>
-      )}
-      <p>
-        <Link to="/complete-profile">Complete it now</Link>
-      </p>
+    <div className="container">
+      <div className="left-content">
+        <h2>Welcome To ExpenceTracker</h2>
+      </div>
+      <div className="right-content">
+        {profileComplete ? (
+          <p>
+            Your profile is complete. <Link to="/complete-profile">View Profile</Link>
+          </p>
+        ) : (
+          <p>Your profile is incomplete.<Link to="/complete-profile">Complete it now</Link></p>
+        )}
+      </div>
     </div>
   );
 };
