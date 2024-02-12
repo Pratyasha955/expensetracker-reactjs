@@ -1,0 +1,18 @@
+.container-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .container-profile h2 {
+    margin-right: 20px;
+  }
+  
+  .container-profile p {
+    margin-right: 20px;
+  }
+  
+  .container-profile p:last-child {
+    margin-right: 0;
+  }
+  

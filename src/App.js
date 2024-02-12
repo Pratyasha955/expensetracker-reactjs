@@ -5,6 +5,7 @@ import { AuthProvider } from './Store/AuthContext';
 import Login from './Auth/login';
 import './App.css';
 import Home from './pages/welcome';
+import ProfileForm from './pages/ProfileForm';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
      <Route path='/' element={<Login />} />
      <Route path='/Signup' element={<Signup />} />
      <Route path='/Welcome' element={<Home />} />
+     <Route  path='/complete-profile' element={<ProfileForm />}/>
     </Routes>
     </AuthProvider>
     </Router>
