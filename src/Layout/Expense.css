@@ -50,7 +50,56 @@
 .form-button:hover {
     background-color: #0056b3;
 }
+.activate-premium-button,
+.download-button,
+.theme-toggle-button {
+    padding: 8px 16px; 
+    font-size: 14px; 
+}
 
+.activate-premium-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.activate-premium-button:hover {
+    background-color: #45a049;
+}
+
+.download-button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.download-button:hover {
+    background-color: #d68910;
+}
+
+.theme-toggle-button {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.theme-toggle-button:hover {
+    background-color: #2c3e50;
+}
 .expense-list {
     background-color: #f9f9f9;
     border: 2px solid #27ae60;
