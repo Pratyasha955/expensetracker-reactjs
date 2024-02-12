@@ -1,9 +1,12 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setExpenses, deleteExpense, updateExpense } from '../Reducers/expensesReducer';
 
 const ExpenseContext = createContext();
 
 export const ExpenseProvider = ({ children }) => {
-    const [expenses, setExpenses] = useState([]);
+    const dispatch = useDispatch();
+    const expenses = useSelector(state => state.expenses.expenses);
 
     useEffect(() => {
         const fetchExpenses = async () => {
@@ -18,7 +21,7 @@ export const ExpenseProvider = ({ children }) => {
                         id: key,
                         ...data[key]
                     }));
-                    setExpenses(fetchedExpenses);
+                    dispatch(setExpenses(fetchedExpenses));
                 }
             } catch (error) {
                 console.error('Error fetching expenses:', error);
@@ -26,9 +29,30 @@ export const ExpenseProvider = ({ children }) => {
         };
 
         fetchExpenses();
-    }, []);
+    }, [dispatch]);
 
-    const addExpense = async (newExpense) => {
+    const fetchExpenses = async () => {
+        try {
+            const response = await fetch('https://expensetracker-7fed8-default-rtdb.firebaseio.com/expense.json');
+            if (!response.ok) {
+                throw new Error('Failed to fetch expenses');
+            }
+            const data = await response.json();
+            if (data) {
+                const fetchedExpenses = Object.keys(data).map(key => ({
+                    id: key,
+                    ...data[key]
+                }));
+                return fetchedExpenses;
+            }
+            return [];
+        } catch (error) {
+            console.error('Error fetching expenses:', error);
+            throw error;
+        }
+    };
+
+    const addExpenseHandler = async (newExpense) => {
         try {
             const response = await fetch('https://expensetracker-7fed8-default-rtdb.firebaseio.com/expense.json', {
                 method: 'POST',
@@ -37,32 +61,36 @@ export const ExpenseProvider = ({ children }) => {
                 },
                 body: JSON.stringify(newExpense),
             });
+
             if (!response.ok) {
                 throw new Error('Failed to add expense');
             }
-            const data = await response.json();
-            setExpenses([...expenses, { id: data.name, ...newExpense }]);
+            const updatedExpenses = await fetchExpenses();
+            dispatch(setExpenses(updatedExpenses));
         } catch (error) {
             console.error('Error adding expense:', error);
         }
     };
 
-    const deleteExpense = async (id) => {
+    const deleteExpenseHandler = async (id) => {
         try {
             const response = await fetch(`https://expensetracker-7fed8-default-rtdb.firebaseio.com/expense/${id}.json`, {
                 method: 'DELETE',
             });
+
             if (!response.ok) {
                 throw new Error('Failed to delete expense');
             }
-            setExpenses(expenses.filter((expense) => expense.id !== id));
+
+            const updatedExpenses = expenses.filter((expense) => expense.id !== id);
+            dispatch(deleteExpense(updatedExpenses));
         } catch (error) {
             console.error('Error deleting expense:', error);
             throw error;
         }
     };
 
-    const updateExpense = async (updatedExpense) => {
+    const updateExpenseHandler = async (updatedExpense) => {
         try {
             const response = await fetch(`https://expensetracker-7fed8-default-rtdb.firebaseio.com/expense/${updatedExpense.id}.json`, {
                 method: 'PUT',
@@ -71,10 +99,13 @@ export const ExpenseProvider = ({ children }) => {
                 },
                 body: JSON.stringify(updatedExpense),
             });
+
             if (!response.ok) {
                 throw new Error('Failed to update expense');
             }
-            setExpenses(expenses.map((expense) => (expense.id === updatedExpense.id ? updatedExpense : expense)));
+
+            const updatedExpenses = expenses.map((expense) => (expense.id === updatedExpense.id ? updatedExpense : expense));
+            dispatch(updateExpense(updatedExpenses));
         } catch (error) {
             console.error('Error updating expense:', error);
             throw error;
@@ -82,7 +113,7 @@ export const ExpenseProvider = ({ children }) => {
     };
 
     return (
-        <ExpenseContext.Provider value={{ expenses, addExpense, deleteExpense, updateExpense}}>
+        <ExpenseContext.Provider value={{ expenses, addExpense: addExpenseHandler, deleteExpense: deleteExpenseHandler, updateExpense: updateExpenseHandler }}>
             {children}
         </ExpenseContext.Provider>
     );

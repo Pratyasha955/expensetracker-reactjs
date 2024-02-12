@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../Store/AuthContext';
 import './login.css';
 
-const Login = ({ onLoginSuccess }) => {
-    const navigate = useNavigate();
+const Login = ( ) => {
     const authContext = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
@@ -42,10 +41,9 @@ const Login = ({ onLoginSuccess }) => {
             const data = await response.json();
 
             if (response.ok) {
-                console.log('User has successfully logged in');
                 setError(null);
-                authContext.login(data.idToken);
-                navigate('/Welcome');
+                const idToken = data.idToken;
+                authContext.login(idToken);
             } else {
                 setError('Invalid credentials');
             }

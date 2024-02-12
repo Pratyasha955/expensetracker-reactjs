@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ExpenseList from './ExpenseList';
 import './Expense.css';
 import { useExpense } from '../Store/ExpenseContext';
@@ -8,6 +8,16 @@ const Expense = () => {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [editingExpense, setEditingExpense] = useState(null);
+    const [totalExpenses, setTotalExpenses] = useState(0);
+
+    useEffect(() => {
+        const calculateTotalExpenses = () => {
+            const total = expenses.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
+            setTotalExpenses(total);
+        };
+
+        calculateTotalExpenses();
+    }, [expenses]);
 
     const handleAmountChange = (event) => {
         setAmount(event.target.value);
@@ -70,6 +80,10 @@ const Expense = () => {
             console.error('Error deleting expense:', error);
         }
     };
+    
+    const toggleActivatePremium = () => {
+        setIsPremiumActivated(!isPremiumActivated);
+    };
 
     return (
         <div className="expense-container">
@@ -101,6 +115,9 @@ const Expense = () => {
                     <select id="category" className="form-select" value={category} onChange={handleCategoryChange}>
                         <option value="">Select Category</option>
                         <option value="Food">Food</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Grocery">Grocery</option>
                         <option value="Petrol">Petrol</option>
                         <option value="Salary">Salary</option>
                     </select>
@@ -110,6 +127,11 @@ const Expense = () => {
                 </div>
             </form>
             <ExpenseList expenses={expenses} handleEdit={handleEdit} handleDelete={handleDelete}/>
+            {totalExpenses > 10000 && (
+                <button className="activate-premium-button" onClick={toggleActivatePremium}>
+                    Activate Premium
+                </button>
+            )}
         </div>
     );
 };
