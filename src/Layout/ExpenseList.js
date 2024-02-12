@@ -1,7 +1,7 @@
 import React from 'react';
 import './ExpenseList.css';
 
-const ExpenseList = ({ expenses }) => {
+const ExpenseList = ({ expenses, handleEdit, handleDelete }) => {
     return (
         <div className="expense-list">
             <h2>Expense List</h2>
@@ -11,6 +11,8 @@ const ExpenseList = ({ expenses }) => {
                         <th>Amount</th>
                         <th>Description</th>
                         <th>Category</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,6 +21,8 @@ const ExpenseList = ({ expenses }) => {
                             <td>${expense.amount}</td>
                             <td>{expense.description}</td>
                             <td>{expense.category}</td>
+                            <td><button className='edit-button' onClick={() => handleEdit(expense)}>Edit</button></td>
+                            <td><button className='delete-button' onClick={() => handleDelete(expense.id)}>Delete</button></td>
                         </tr>
                     ))}
                 </tbody>

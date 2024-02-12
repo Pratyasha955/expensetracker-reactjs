@@ -47,8 +47,42 @@ export const ExpenseProvider = ({ children }) => {
         }
     };
 
+    const deleteExpense = async (id) => {
+        try {
+            const response = await fetch(`https://expensetracker-7fed8-default-rtdb.firebaseio.com/expense/${id}.json`, {
+                method: 'DELETE',
+            });
+            if (!response.ok) {
+                throw new Error('Failed to delete expense');
+            }
+            setExpenses(expenses.filter((expense) => expense.id !== id));
+        } catch (error) {
+            console.error('Error deleting expense:', error);
+            throw error;
+        }
+    };
+
+    const updateExpense = async (updatedExpense) => {
+        try {
+            const response = await fetch(`https://expensetracker-7fed8-default-rtdb.firebaseio.com/expense/${updatedExpense.id}.json`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedExpense),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update expense');
+            }
+            setExpenses(expenses.map((expense) => (expense.id === updatedExpense.id ? updatedExpense : expense)));
+        } catch (error) {
+            console.error('Error updating expense:', error);
+            throw error;
+        }
+    };
+
     return (
-        <ExpenseContext.Provider value={{ expenses, addExpense}}>
+        <ExpenseContext.Provider value={{ expenses, addExpense, deleteExpense, updateExpense}}>
             {children}
         </ExpenseContext.Provider>
     );
