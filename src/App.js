@@ -7,6 +7,7 @@ import './App.css';
 import Header from './Layout/Header';
 import Home from './pages/welcome';
 import ProfileForm from './pages/ProfileForm';
+import ForgotPassword from './Auth/forgot';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/Signup' element={<Signup />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/Welcome' element={<Home />} />
           <Route path='/complete-profile' element={<ProfileForm />} />
         </Routes>

@@ -44,7 +44,7 @@ const Login = ({ onLoginSuccess }) => {
             if (response.ok) {
                 console.log('User has successfully logged in');
                 setError(null);
-                authContext.login(data.idToken); 
+                authContext.login(data.idToken);
                 navigate('/Welcome');
             } else {
                 setError('Invalid credentials');
@@ -69,11 +69,14 @@ const Login = ({ onLoginSuccess }) => {
                     <input type="password" name="password" value={formData.password} onChange={handleChange} />
                 </label>
                 <br />
+                <p className="forgot-message">
+                     <Link to="/forgot-password">Forgot Password?</Link>
+                </p>
                 <button type="submit">Login</button>
             </form>
             {error && <p className="error-message">{error}</p>}
             <p className="signup-message">
-                Don't have an account? <Link  to="/Signup">Sign Up</Link>
+                Don't have an account? <Link to="/Signup">Sign Up</Link>
             </p>
         </div>
     );

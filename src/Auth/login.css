@@ -1,7 +1,7 @@
 .login-container {
     max-width: 400px;
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 50px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -67,5 +67,21 @@
   }
   
   .signup-message a:hover {
+    text-decoration: underline;
+  }
+
+  .forgot-message {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .forgot-message a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .forgot-message a:hover {
     text-decoration: underline;
   }
