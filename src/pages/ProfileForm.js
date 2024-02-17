@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../Store/AuthContext';
 import './ProfileForm.css';
 
@@ -107,6 +107,7 @@ const ProfileForm = () => {
                     />
                 </div>
                 <button type="submit" className="button-profile">Update Profile</button>
+                <Link to="/welcome"><button  className="button-back-profile">Back</button></Link>
             </form>
         </div>
     );

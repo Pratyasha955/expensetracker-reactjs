@@ -1,3 +1,4 @@
+/* Light theme */
 .profile-form-container {
   max-width: 600px;
   margin: 0 auto;
@@ -49,11 +50,65 @@
   background-color: #0056b3;
 }
 
+.button-back-profile {
+  display: block;
+  margin-top: 6px;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-back-profile:hover {
+  background-color: #0056b3;
+}
 .error-message {
   color: #ff0000;
   margin-top: 10px;
   background-color: #ffecec;
   padding: 10px;
+  border: 1px solid #ffb3b3;
+  border-radius: 5px;
+}
+
+/* Dark theme */
+[data-theme='dark'] .profile-form-container {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .form-group label,
+[data-theme='dark'] .form-group input {
+  color: #fff; /* Light text color */
+}
+
+[data-theme='dark'] .button-profile {
+  background-color: #007bff;
+  color: #fff;
+}
+
+[data-theme='dark'] .button-profile:hover {
+  background-color: #0056b3;
+}
+
+[data-theme='dark'] .button-back-profile {
+  background-color: #007bff;
+  color: #fff;
+}
+
+[data-theme='dark'] .button-back-profile:hover {
+  background-color: #0056b3;
+}
+
+[data-theme='dark'] .error-message {
+  color: #ff0000;
+  background-color: #ffecec;
   border: 1px solid #ffb3b3;
   border-radius: 5px;
 }

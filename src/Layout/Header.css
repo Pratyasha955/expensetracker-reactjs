@@ -1,23 +1,22 @@
+/* Light theme */
 .header {
     background-color: #333;
     color: #fff;
     padding: 20px 23px;
     position: fixed;
-    width: 100%; /* Ensure the header spans the entire width */
+    width: 100%;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000; /* Ensure the header stays above other elements */
+    z-index: 1000;
 }
 
 .heading {
     margin: 0;
     font-size: 24px;
 }
-.navbar{
-    margin-right: 80px;
-}
+
 .nav-list {
     list-style-type: none;
     margin: 0;
@@ -26,11 +25,14 @@
 
 .nav-item {
     display: inline-block;
-    margin-right: 40px; /* Add margin to all nav items */
+    margin-right: 40px;
 }
 
 .nav-item:last-child {
-    margin-right: 0; /* Remove margin from the last nav item */
+    margin-right: 0;
+}
+.navbar{
+    margin-right: 90px;
 }
 
 .logout-button {
@@ -43,5 +45,20 @@
 }
 
 .logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Dark theme */
+[data-theme='dark'] .header {
+    background-color: #222;
+    color: #fff;
+}
+
+[data-theme='dark'] .logout-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+[data-theme='dark'] .logout-button:hover {
     background-color: #c82333;
 }

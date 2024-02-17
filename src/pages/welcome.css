@@ -1,3 +1,4 @@
+/* Light theme */
 .container {
   display: flex;
   justify-content: space-between;
@@ -43,11 +44,27 @@ a:hover {
 
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
-    align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
   }
 
   .right-content {
-    text-align: left;
+      text-align: left;
   }
+}
+
+/* Dark theme */
+[data-theme='dark'] .container {
+  background-color: #333;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] h2,
+[data-theme='dark'] p,
+[data-theme='dark'] a {
+  color: #fff; /* Light text color */
+}
+
+[data-theme='dark'] a:hover {
+  text-decoration: underline;
 }

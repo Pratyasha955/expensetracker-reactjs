@@ -11,6 +11,10 @@ const Expense = () => {
     const [totalExpenses, setTotalExpenses] = useState(0);
     const [darkMode, toggleDarkMode] = useReducer((state) => !state, false);
     const [isPremiumActivated, setIsPremiumActivated] = useState(false);
+    
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    }, [darkMode]);
 
     useEffect(() => {
         const calculateTotalExpenses = () => {
